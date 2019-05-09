@@ -13,6 +13,19 @@ class App extends Component {
 		]
 	};
 
+	static getDerivedStateFromProps(props, state) {
+		console.log('[App.js] getDerivedStateFromProps', props);
+		return state;
+	}
+
+	// componentWillMount() {
+	// 	console.log('[App.js] componentWillMount');
+	// }
+
+	componentDidMount() {
+		console.log('[App.js] componentDidMount');
+	}
+
 	nameChangedHandler = (event, personId) => {
 		const personIndex = this.state.persons.findIndex(person => {
 			return person.id === personId;
@@ -42,6 +55,7 @@ class App extends Component {
 	};
 
 	render() {
+		console.log('[App.js] render');
 		let persons = null;
 
 		if (this.state.showPersons) {
