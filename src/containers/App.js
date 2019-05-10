@@ -5,12 +5,19 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+		console.log('[App.js] constructor');
+	}
+
 	state = {
 		persons: [
 			{ id: uuid.v4(), name: 'Kris', age: 35 },
 			{ id: uuid.v4(), name: 'Peter', age: 28 },
 			{ id: uuid.v4(), name: 'Jane', age: 30 }
-		]
+		],
+		showPersons: false,
+		showCockpit: false
 	};
 
 	static getDerivedStateFromProps(props, state) {
@@ -60,6 +67,7 @@ class App extends Component {
 
 	togglePersonsHandler = () => {
 		const doesShow = this.state.showPersons;
+		alert(doesShow);
 		this.setState({ showPersons: !doesShow });
 	};
 
@@ -81,6 +89,7 @@ class App extends Component {
 
 		return (
 			<div className={classes.App}>
+				<button>Hide cockpit</button>
 				<Cockpit
 					title={this.props.appTitle}
 					showPersons={this.state.showPersons}
