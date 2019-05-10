@@ -6,7 +6,12 @@ const Cockpit = props => {
 	useEffect(() => {
 		console.log('[Cockpit.js] useEffect');
 		// HTTP request
-	});
+		setTimeout(() => {
+			alert('data fetched');
+		}, 1000);
+		// the empty array ensures that the effect hook gets executed only once - behavior like componentDidMount() {}
+		// if we want this to be executed whenever for example "persons" change, we simply put persons in the array - [persons]
+	}, []);
 
 	const assignedClasses = [];
 	let btnClass = '';
