@@ -9,6 +9,9 @@ const Cockpit = props => {
 		setTimeout(() => {
 			alert('data fetched');
 		}, 1000);
+		return () => {
+			console.log('[Cockpit.js] cleanup work in useEffect');
+		};
 		// the empty array ensures that the effect hook gets executed only once - behavior like componentDidMount() {}
 		// if we want this to be executed whenever for example "persons" change, we simply put persons in the array - [persons]
 	}, []);
