@@ -93,7 +93,7 @@ class App extends Component {
 						this.setState({ showCockpit: !this.state.showCockpit });
 					}}
 				>
-					Remove cockpit
+					toggle cockpit
 				</button>
 				{this.state.showCockpit ? (
 					<Cockpit
